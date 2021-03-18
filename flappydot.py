@@ -84,7 +84,7 @@ class FlappyGame(GameApp):
         self.image_filename = 'images/bgggg.png'
         self.photo_image = tk.PhotoImage(file=self.image_filename)
         self.canvas_object_id = self.canvas.create_image(250, 200, image=self.photo_image)
-        self.dot = Dot(self, 'images/yy.png',CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+        self.dot = Dot(self, 'images/dot.png',CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
         self.elements.append(self.dot)
         self.pillar_pair = PillarPair(self, 'images/pillar-pair.png', CANVAS_WIDTH, CANVAS_HEIGHT // 2)
         self.elements.append(self.pillar_pair)
