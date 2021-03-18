@@ -5,7 +5,6 @@ import random
 
 CANVAS_WIDTH = 800
 CANVAS_HEIGHT = 500
-
 UPDATE_DELAY = 33
 GRAVITY = 2.5
 JUMP_VELOCITY = -20
@@ -88,6 +87,8 @@ class FlappyGame(GameApp):
         self.dot.is_started = False
         self.pillar_pair.is_started = False
         self.pillar_pair.vx = 0
+
+
 
 
 if __name__ == "__main__":
