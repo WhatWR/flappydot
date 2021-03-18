@@ -87,6 +87,7 @@ class GameApp(ttk.Frame):
             highlightthickness=0)
         self.canvas.grid(sticky="news")
 
+
     def animate(self):
         self.pre_update()
 
