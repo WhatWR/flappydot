@@ -24,6 +24,7 @@ class Dot(Sprite):
     def init_element(self):
         self.vy = -30
         self.is_started = False
+        self.score = []
 
     def update(self):
         if self.is_started:
@@ -88,12 +89,14 @@ class FlappyGame(GameApp):
         self.elements.append(self.dot)
         self.pillar_pair = PillarPair(self, 'images/pillar-pair.png', CANVAS_WIDTH, CANVAS_HEIGHT // 2)
         self.elements.append(self.pillar_pair)
+        self.dot.score.append(self.scoring)
 
 
         self.counting_score = 0
 
     def scoring(self):
         self.counting_score += 1
+        self.update_scores()
 
     def update_scores(self):
         self.counting_score.set_text(f'score: {self.pacman1_score}')
