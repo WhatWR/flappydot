@@ -8,8 +8,16 @@ CANVAS_HEIGHT = 500
 
 UPDATE_DELAY = 33
 GRAVITY = 2.5
+
 JUMP_VELOCITY = -20
 PILLAR_SPEED = 5
+
+
+
+PILLAR_SPEED = 5
+
+
+JUMP_VELOCITY = -20
 
 
 class Dot(Sprite):
@@ -75,6 +83,7 @@ class FlappyGame(GameApp):
     def create_sprites(self):
         self.image_filename = 'images/bgggg.png'
         self.photo_image = tk.PhotoImage(file=self.image_filename)
+        # image = image.resize((450, 350), Image.ANTIALIAS)
         self.canvas_object_id = self.canvas.create_image(250, 200, image=self.photo_image)
         self.dot = Dot(self, 'images/angry-birds.png',CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
         self.elements.append(self.dot)
