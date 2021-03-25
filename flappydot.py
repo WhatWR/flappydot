@@ -12,11 +12,6 @@ GRAVITY = 2.5
 JUMP_VELOCITY = -20
 PILLAR_SPEED = 5
 
-
-
-PILLAR_SPEED = 5
-
-
 JUMP_VELOCITY = -20
 
 
@@ -74,10 +69,6 @@ class PillarPair(Sprite):
     def start(self):
         self.is_started = True
 
-    def game_over(self):
-        self.is_started = False
-
-
     def is_hit(self, dot):
         return (self.x - 20 <= dot.x + 20 <= self.x + 20) and (dot.y >= self.y + 100 or dot.y <= self.y - 100)
 
@@ -99,7 +90,7 @@ class FlappyGame(GameApp):
         self.elements.append(self.pillar_pair)
         self.dot.score.append(self.scoring)
 
-
+        self.new_game = False
         self.counting_score = 0
 
     def scoring(self):
@@ -140,11 +131,17 @@ class FlappyGame(GameApp):
         self.pillar_pair.start()
         self.dot.start()
         self.dot.jump()
+        if self.new_game:
+            self.dot.y = CANVAS_HEIGHT//2
+            self.pillar_pair.x = CANVAS_WIDTH
+            self.new_game = False
+            self.counting_score = 0
 
     def game_over(self):
         self.dot.is_started = False
         self.pillar_pair.is_started = False
         self.pillar_pair.vx = 0
+        self.new_game = True
 
 
 if __name__ == "__main__":
@@ -154,4 +151,6 @@ if __name__ == "__main__":
     app = FlappyGame(root, CANVAS_WIDTH, CANVAS_HEIGHT, UPDATE_DELAY)
     app.start()
     root.mainloop()
+
+
 
