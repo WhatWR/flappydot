@@ -91,6 +91,7 @@ class FlappyGame(GameApp):
         self.dot.score.append(self.scoring)
 
         self.new_game = False
+        self.counting_score = Text(self,'P1:0',100,20)
         self.counting_score = 0
 
     def scoring(self):
